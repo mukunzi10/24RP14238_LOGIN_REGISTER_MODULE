@@ -1,6 +1,6 @@
 {
-    "name": "tuyishimire/shareride",
-    "description": "ShareRide Application with MongoDB - TUYISHIMIRE Lea",
+    "name": "Gustave Karekezi/shareride",
+    "description": "ShareRide Application with MongoDB - Gustave Karekezi",
     "type": "project",
     "require": {
         "php": ">=7.4",
@@ -10,10 +10,9 @@
         "psr-4": {
             "App\\": "src/"
         }
-    }
-}
-{
+    },
+    {
   "require": {
     "mongodb/mongodb": "^1.14"
   }
-}c
+}

@@ -3,8 +3,8 @@ pipeline {
     
     environment {
         PROJECT_NAME = 'ShareRide'
-        STUDENT_NAME = 'TUYISHIMIRE Lea'
-        REG_NUMBER = '25RP20411'
+        STUDENT_NAME = 'Gustave Karekezi'
+        REG_NUMBER = '24RP14238'
     }
     
     stages {

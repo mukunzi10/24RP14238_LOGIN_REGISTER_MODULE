@@ -1,47 +1,46 @@
 version: '3.8'
 
 services:
-  25_web:
+  24RP14238_web:
     build: .
-    container_name: 25_web_container
+    container_name: 24RP14238_web_container
     ports:
       - "8082:80"
     volumes:
       - ./src:/var/www/html
     depends_on:
-      - 25_mongodb
+      - 24RP14238_mongodb
     networks:
-      - 25_network
+      - 24RP14238_network
 
-  25_mongodb:
+  24RP14238_mongodb:
     image: mongo:latest
-    container_name: 25_mongodb_container
+    container_name: 24RP14238_mongodb_container
     ports:
       - "27019:27017"
     environment:
-      MONGO_INITDB_DATABASE: 25_shareride_db
+      MONGO_INITDB_DATABASE: 24RP14238_shareride_db
     volumes:
       - mongodb_data:/data/db
     networks:
-      - 25_network
-
-  25_phpmongo:
+      - 24RP14238_network
+  24RP14238_phpmongo:
     image: mongo-express:latest
-    container_name: 25_phpmongo_container
+    container_name: 24RP14238_phpmongo_container
     ports:
       - "8081:8081"
     environment:
-      ME_CONFIG_MONGODB_SERVER: 25_mongodb
+      ME_CONFIG_MONGODB_SERVER: 24RP14238_mongodb
       ME_CONFIG_MONGODB_PORT: 27017
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin123
     depends_on:
-      - 25_mongodb
+      - 24RP14238_mongodb
     networks:
-      - 25_network
+      - 24RP14238_network
 
 networks:
-  25_network:
+  24RP14238_network:
     driver: bridge
 
 volumes:
