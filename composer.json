@@ -1,0 +1,19 @@
+{
+    "name": "tuyishimire/shareride",
+    "description": "ShareRide Application with MongoDB - TUYISHIMIRE Lea",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "mongodb/mongodb": "^1.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
+{
+  "require": {
+    "mongodb/mongodb": "^1.14"
+  }
+}c

@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  25_web:
+    build: .
+    container_name: 25_web_container
+    ports:
+      - "8082:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - 25_mongodb
+    networks:
+      - 25_network
+
+  25_mongodb:
+    image: mongo:latest
+    container_name: 25_mongodb_container
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_DATABASE: 25_shareride_db
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - 25_network
+
+  25_phpmongo:
+    image: mongo-express:latest
+    container_name: 25_phpmongo_container
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: 25_mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin123
+    depends_on:
+      - 25_mongodb
+    networks:
+      - 25_network
+
+networks:
+  25_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
